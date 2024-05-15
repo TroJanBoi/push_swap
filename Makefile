@@ -6,7 +6,7 @@
 #    By: pesrisaw <pesrisaw@student.42bangkok.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/05 17:51:55 by pesrisaw          #+#    #+#              #
-#    Updated: 2024/05/13 23:27:46 by pesrisaw         ###   ########.fr        #
+#    Updated: 2024/05/15 22:38:52 by pesrisaw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CFLAGS = -Wall -Wextra -Werror
 # CFLAGS =
 AR = ar rcs
 RM = rm -f
-INCLUDE = 
+
 
 FILES = main \
 		ft_util \
@@ -25,6 +25,8 @@ FILES = main \
 		push \
 		rotate \
 		reverse \
+		ft_split \
+		ft_atoi \
 		check_input
 
 

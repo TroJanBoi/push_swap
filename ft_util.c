@@ -6,7 +6,7 @@
 /*   By: pesrisaw <pesrisaw@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 20:04:20 by pesrisaw          #+#    #+#             */
-/*   Updated: 2024/05/13 23:22:41 by pesrisaw         ###   ########.fr       */
+/*   Updated: 2024/05/16 00:37:44 by pesrisaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,39 +23,71 @@ void	ft_putstr(char *str)
 		i++;
 	}
 }
-static int	sign_overflow(long s)
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	if (s > 0)
-		return (-1);
-	else
-		return (0);
+	char	*str;
+	char	*ptr;
+	size_t	str_len;
+
+	if (!s)
+		return (NULL);
+	str_len = ft_strlen(s);
+	if (start > str_len)
+		len = 0;
+	else if (len > (str_len - start))
+		len = str_len - start;
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (!str)
+		return (NULL);
+	s += start;
+	ptr = str;
+	*(str + len) = '\0';
+	while (len-- && *s)
+		*str++ = *s++;
+	return (ptr);
 }
 
-int	ft_atoi(const char *nptr)
+int	ft_strlen(const char *s)
 {
-	size_t	i;
-	long	s;
-	long	ret;
+	int	i;
 
 	i = 0;
-	s = 1;
-	ret = 0;
-	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32)
-		i++;
-	if (nptr[i] == '-' || nptr[i] == '+')
+	while (s[i] != '\0')
 	{
-		if (nptr[i] == '-')
-		{
-			s *= -1;
-		}
 		i++;
 	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
+	return (i);
+}
+
+char	*ft_strjoin(const char *s1, const char *s2)
+{
+	char	*ptr;
+	int		i;
+	int		temp;
+
+	i = 0;
+	ptr = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!s1 || !s2 || !ptr)
+		return (0);
+	while (s1[i] != '\0')
 	{
-		ret = (ret * 10) + (nptr[i] - 48);
+		ptr[i] = s1[i];
 		i++;
-		if (ret < 0)
-			return (sign_overflow(s));
 	}
-	return (ret * s);
+	temp = i;
+	i = 0;
+	while (s2[i] != '\0')
+	{
+		ptr[temp] = s2[i];
+		temp++;
+		i++;
+	}
+	ptr[temp] = '\0';
+	return (ptr);
+}
+void	ft_error(void)
+{
+	ft_putstr("Error\n");
+	exit(1);
 }
