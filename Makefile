@@ -6,14 +6,14 @@
 #    By: pesrisaw <pesrisaw@student.42bangkok.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/05 17:51:55 by pesrisaw          #+#    #+#              #
-#    Updated: 2024/05/15 22:38:52 by pesrisaw         ###   ########.fr        #
+#    Updated: 2024/05/16 10:52:48 by pesrisaw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
-# CFLAGS =
+# CFLAGS = -Wall -Wextra -Werror
+CFLAGS =
 AR = ar rcs
 RM = rm -f
 
