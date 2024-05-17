@@ -6,7 +6,7 @@
 #    By: pesrisaw <pesrisaw@student.42bangkok.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/05 17:51:55 by pesrisaw          #+#    #+#              #
-#    Updated: 2024/05/16 10:52:48 by pesrisaw         ###   ########.fr        #
+#    Updated: 2024/05/16 15:58:24 by pesrisaw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ FILES = main \
 		reverse \
 		ft_split \
 		ft_atoi \
+		check_util \
 		check_input
 
 

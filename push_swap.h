@@ -6,7 +6,7 @@
 /*   By: pesrisaw <pesrisaw@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 17:39:02 by pesrisaw          #+#    #+#             */
-/*   Updated: 2024/05/16 00:53:00 by pesrisaw         ###   ########.fr       */
+/*   Updated: 2024/05/16 15:58:03 by pesrisaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdbool.h>
+# include <string.h>
 typedef struct s_stack
 {
 	int				data;
@@ -30,6 +31,8 @@ char	**ft_split(char const *s, char c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_atoi(const char *nptr);
 void	ft_error(void);
+int		ft_check_num(char c);
+int		ft_check_op(char c);
 
 /*Check Input*/
 void	check_arg(char *str);

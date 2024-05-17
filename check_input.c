@@ -6,7 +6,7 @@
 /*   By: pesrisaw <pesrisaw@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 18:43:50 by pesrisaw          #+#    #+#             */
-/*   Updated: 2024/05/16 12:03:32 by pesrisaw         ###   ########.fr       */
+/*   Updated: 2024/05/16 16:05:39 by pesrisaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,6 @@ static int	ft_isalspace(char *str)
 		return (true);
 }
 
-static int	ft_check_op(char c)
-{
-	return (c == '+' || c == '-');
-}
-
-
 static int	ft_isalnum(char *str)
 {
 	int	i;
@@ -44,7 +38,7 @@ static int	ft_isalnum(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (ft_check_op(str[i]) == 1 && str[i + 1] >= '0' && str[i] <= '9')
+		if (ft_check_op(str[i]) == 1 && ft_check_num(str[i + 1]) == 1 && ft_check_num(str[i - 1]) == 0)
 			i++;
 		else if (str[i] >= '0' && str[i] <= '9' || str[i] == ' ')
 			i++;
