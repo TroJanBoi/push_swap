@@ -18,6 +18,8 @@
 # include <unistd.h>
 # include <stdbool.h>
 # include <string.h>
+# include <limits.h>
+
 typedef struct s_stack
 {
 	int				data;

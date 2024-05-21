@@ -34,24 +34,52 @@ static int	ft_isalspace(char *str)
 static int	ft_isalnum(char *str)
 {
 	int	i;
-
+	// dprintf(2, ">>>> %s\n", str);
 	i = 0;
 	while (str[i])
 	{
-		if (ft_check_op(str[i]) == 1 && ft_check_num(str[i + 1]) == 1 && ft_check_num(str[i - 1]) == 0)
-			i++;
-		else if (str[i] >= '0' && str[i] <= '9' || str[i] == ' ')
-			i++;
-		else
-			return (0);
+		if (ft_check_op(str[i]) == false)
+			break;
+		i++;
 	}
+	// printf("\nop : %d\n", i);
+	// test
+	while (str[i])
+	{
+		// dprintf(2, "herer >> %s\n", &str[i]);
+		if (ft_check_num(str[i]) == 1)
+		{
+			// printf("num >>>>> %d\n", ft_check_num(str[i]));
+			i++;
+		}
+		else
+		{
+			// printf("i : %d\n", i);
+			return(0);
+		}
+	}
+	return (1);
+}
+
+static	int	check_overflow(char *str)
+{
+	if (ft_atoi(str) >= INT_MAX || ft_atoi(str) <= INT_MIN)
+		return (0);
 	return (1);
 }
 
 void	check_arg(char *str)
 {
+	printf("isalnum : %d\n", ft_isalnum(str));
+	printf("str = |%s|\n", str);
 	if (ft_strlen(str) == 0 || ft_isalspace(str) == 0)
+	{
+		printf("TEST 1\n");
 		ft_error();
-	else if (ft_isalnum(str) == 0)
+	}
+    if (ft_isalnum(str) == 1);
+	{
+		printf("TEST 2\n");
 		ft_error();
+	}
 }
