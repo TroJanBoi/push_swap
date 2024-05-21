@@ -34,7 +34,7 @@ static int	ft_isalspace(char *str)
 static int	ft_isalnum(char *str)
 {
 	int	i;
-	// dprintf(2, ">>>> %s\n", str);
+
 	i = 0;
 	while (str[i])
 	{
@@ -42,21 +42,14 @@ static int	ft_isalnum(char *str)
 			break;
 		i++;
 	}
-	// printf("\nop : %d\n", i);
-	// test
+	if (i > 1)
+		return (0);
 	while (str[i])
 	{
-		// dprintf(2, "herer >> %s\n", &str[i]);
 		if (ft_check_num(str[i]) == 1)
-		{
-			// printf("num >>>>> %d\n", ft_check_num(str[i]));
 			i++;
-		}
-		else
-		{
-			// printf("i : %d\n", i);
-			return(0);
-		}
+		else if (ft_check_num(str[i]) == 0)
+		 	return (0);
 	}
 	return (1);
 }
@@ -70,16 +63,9 @@ static	int	check_overflow(char *str)
 
 void	check_arg(char *str)
 {
-	printf("isalnum : %d\n", ft_isalnum(str));
-	printf("str = |%s|\n", str);
+
 	if (ft_strlen(str) == 0 || ft_isalspace(str) == 0)
-	{
-		printf("TEST 1\n");
 		ft_error();
-	}
-    if (ft_isalnum(str) == 1);
-	{
-		printf("TEST 2\n");
+    if (ft_isalnum(str) == 0)
 		ft_error();
-	}
 }
