@@ -44,7 +44,7 @@ int		check_overflow(char *str);
 void	ft_lstadd_back(t_stack **lst, t_stack *new);
 int		ft_lstsize(t_stack *lst);
 void	ft_free(char **str);
-
+void	ft_radix(t_stack **stack_a, t_stack **stack_b);
 /*Sorting*/
 int		check_sort(char *str);
 void	ft_freestack(t_stack **stack);

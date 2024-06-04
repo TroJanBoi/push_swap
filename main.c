@@ -39,9 +39,11 @@ static void	ft_check_sort(t_stack **stack_a, t_stack **stack_b, int size)
 		sort_neht(stack_a, stack_b);
 	else if (size <= 5)
 		sort_dausut(stack_a, stack_b);
+	else
+		ft_radix(stack_a, stack_b);
 }
 
-static void	ft_printstack(t_stack **stack)
+static void	ft_printfstack(t_stack **stack)
 {
 	t_stack	*tmp;
 
@@ -67,9 +69,9 @@ int	main(int ac, char **av)
 	ft_addtostack(&stack_a, str);
 	free(str);
 	ft_setindex(&stack_a);
-	ft_printstack(&stack_a);
+	// ft_printfstack(&stack_a);
 	ft_check_sort(&stack_a, &stack_b, ft_lstsize(stack_a));
-	ft_printstack(&stack_a);
+	// ft_printfstack(&stack_a);
 	ft_freestack(&stack_a);
 	ft_freestack(&stack_b);
 }
