@@ -39,18 +39,14 @@ int	check_sort(char *str)
 	result = ft_split(str, ' ');
 	while (result[i])
 	{
-		dprintf(2, "here -> [%s] -> \n", i[result]);
-		i++;
-	}
-	i = 0;
-
-	while (result[i])
-	{
 		j = i + 1;
 		while (result[j])
 		{
 			if (ft_atoi(result[i]) > ft_atoi(result[j]))
-				return (ft_free(result),0);
+			{
+				ft_free(result);
+				return (0);
+			}
 			j++;
 		}
 		i++;

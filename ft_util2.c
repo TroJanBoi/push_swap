@@ -11,24 +11,16 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <string.h>
-#include <stdio.h>
+
 char	*ft_alljoin(char **av)
 {
 	char	*str;
 	int		i;
-	int		c;
 	char	*tmp;
-	
-	c = 1;
+
 	i = 1;
-	while (av[c])
-		c++;
-	// printf("len : %d\n", c);
 	str = NULL;
-	printf("before |%s|\n", str);
-	str = ft_substr("",0,0);
-	printf("after |%s|\n", str);
+	str = ft_substr("", 0, 0);
 	while (av[i])
 	{
 		tmp = str;
@@ -39,7 +31,6 @@ char	*ft_alljoin(char **av)
 		free(tmp);
 		i++;
 	}
-	printf("end |%s|\n", str);
 	return (str);
 }
 
@@ -64,7 +55,6 @@ void	ft_free(char **str)
 	i = 0;
 	while (str[i] != NULL)
 	{
-		dprintf(2, "free the [%s]\n", str[i]);
 		free(str[i]);
 		i++;
 	}

@@ -29,20 +29,20 @@ void	sort_seht(t_stack **stack_a)
 	int		seht;
 
 	set_value(&hana, &dool, &seht, stack_a);
-	if (hana > dool && seht > hana) // 2 1 3
+	if (hana > dool && seht > hana)
 		ft_swap_a(stack_a);
-	else if (hana > dool && dool > seht) // 3 2 1
+	else if (hana > dool && dool > seht)
 	{
 		ft_swap_a(stack_a);
 		ft_rra(stack_a);
 	}
-	else if (seht > dool && hana > seht) // 3 1 2
+	else if (seht > dool && hana > seht)
 		ft_rotate_a(stack_a);
-	else if (seht > hana && dool > seht) // 1 3 2
+	else if (seht > hana && dool > seht)
 	{
 		ft_swap_a(stack_a);
 		ft_rotate_a(stack_a);
 	}
-	else if (seht < dool && hana < dool) // 2 3 1
+	else if (seht < dool && hana < dool)
 		ft_rra(stack_a);
 }

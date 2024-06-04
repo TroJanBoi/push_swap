@@ -15,7 +15,7 @@
 int	ft_index(t_stack **stack, int num)
 {
 	t_stack	*tmp;
-	int	count;
+	int		count;
 
 	count = 1;
 	tmp = *stack;

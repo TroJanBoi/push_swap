@@ -30,7 +30,7 @@ FILES = main \
 		ft_atol \
 		ft_atoi \
 		ft_util2 \
-		sort \
+		radix \
 		ft_index \
 		sort_dool \
 		sort_seht \

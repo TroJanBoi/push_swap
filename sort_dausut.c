@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	sort_dausut(t_stack **stack_a,t_stack **stack_b)
+void	sort_dausut(t_stack **stack_a, t_stack **stack_b)
 {
 	while (ft_lstsize(*stack_a) != 3)
 	{
