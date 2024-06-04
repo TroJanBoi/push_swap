@@ -80,6 +80,7 @@ int	ft_checkdup(char *str)
 		i++;
 	}
 	ft_free(result);
+	result = NULL;
 	return (1);
 }
 

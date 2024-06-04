@@ -82,22 +82,27 @@ static void	ft_printstack(t_stack **stack)
 
 int	main(int ac, char **av)
 {
-	t_stack	**stack_a;
-	t_stack	**stack_b;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
 	char	*str;
 
 	if (ac < 2)
 		return (0);
 	str = check_arg(av);
-	stack_a = malloc(sizeof(t_stack));
-	stack_b = malloc(sizeof(t_stack));
-	ft_addtostack(stack_a, str);
-	ft_setindex(stack_a);
+	dprintf(2, "check arg done -> [%s]\n", str);
+	stack_a = NULL;
+	stack_b = NULL;
+
+	ft_addtostack(&stack_a, str);
+	dprintf(2, "add st done \n");
+	free(str);
+	ft_setindex(&stack_a);
 	// ft_printstack(stack_a);
-	ft_check_sort(stack_a, stack_b, ft_lstsize(*stack_a));
+	ft_check_sort(&stack_a, &stack_b, ft_lstsize(stack_a));
 	// ft_printstack(stack_a);
-	ft_freestack(stack_a);
-	ft_freestack(stack_b);
+	ft_freestack(&stack_a);
+	ft_freestack(&stack_b);
+
 }
 
 /*Add into stack_a*/
