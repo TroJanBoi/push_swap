@@ -86,6 +86,7 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	ptr[temp] = '\0';
 	return (ptr);
 }
+
 void	ft_error(void)
 {
 	ft_putstr("Error\n");

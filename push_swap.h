@@ -22,35 +22,53 @@
 
 typedef struct s_stack
 {
+	int				index;
 	int				data;
 	struct s_stack	*next;
 }					t_stack;
 
-t_stack	*ft_newstack(int	head);
+t_stack	*ft_newstack(int head);
 void	ft_addstack(t_stack **head, t_stack *next);
 void	ft_putstr(char *str);
 char	**ft_split(char const *s, char c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_atoi(const char *nptr);
 void	ft_error(void);
-int		ft_check_num(char c);
-int		ft_check_op(char c);
+int		check_num(char c);
+int		check_op(char c);
+long	ft_atol(const char *nptr);
+char	*ft_alljoin(char **av);
+int		ft_atoi(const char *nptr);
+int		ft_checkdup(char *str);
+int		check_overflow(char *str);
+void	ft_lstadd_back(t_stack **lst, t_stack *new);
+int		ft_lstsize(t_stack *lst);
+void	ft_free(char **str);
+
+/*Sorting*/
+int		check_sort(char *str);
+void	ft_freestack(t_stack **stack);
+// void	ft_sort(t_stack **stack_a, t_stack **stack_b);
+void	ft_setindex(t_stack **stack);
+void	sort_dool(t_stack **stack_a);
+void	sort_seht(t_stack **stack_a);
+void	sort_neht(t_stack **stack_a, t_stack **stack_b);
+void	sort_dausut(t_stack **stack_a, t_stack **stack_b);
 
 /*Check Input*/
-void	check_arg(char *str);
-int		ft_atoi(const char *nptr);
+char	*check_arg(char **av);
 char	*ft_strjoin(char const *s1, char const *s2);
 int		ft_strlen(const char *str);
 
 /*Push Stack*/
 void	ft_push(t_stack **first, t_stack **second);
 void	ft_push_a(t_stack **stack_a, t_stack **stack_b);
-void	ft_push_b(t_stack **stack_b, t_stack **stack_a);
+void	ft_push_b(t_stack **stack_a, t_stack **stack_b);
 
 /*Swap Stack*/
-void	ft_swap(t_stack *src);
-void	ft_swap_a(t_stack *stack_a);
-void	ft_swap_both(t_stack *stack_a, t_stack *stack_b);
+void	ft_swap(t_stack **stack);
+void	ft_swap_a(t_stack **stack_a);
+void	ft_swap_both(t_stack **stack_a, t_stack **stack_b);
 
 /*Rotate Stack*/
 t_stack	*ft_lstlast(t_stack *stack);

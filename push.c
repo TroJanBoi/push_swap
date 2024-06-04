@@ -12,26 +12,26 @@
 
 #include "push_swap.h"
 
-void	ft_push(t_stack **first, t_stack **second)
+void	ft_push(t_stack **src, t_stack **dest)
 {
 	t_stack	*tmp;
 
-	if (!first)
+	if (!src)
 		return ;
-	tmp = (*first)->next;
-	(*first)->next = *second;
-	*second = *first;
-	*first = tmp;
+	tmp = (*src)->next;
+	(*src)->next = *dest;
+	*dest = *src;
+	*src = tmp;
+}
+
+void	ft_push_b(t_stack **stack_a, t_stack **stack_b)
+{
+	ft_push(stack_a, stack_b);
+	ft_putstr("pb\n");
 }
 
 void	ft_push_a(t_stack **stack_a, t_stack **stack_b)
 {
-	ft_push(stack_a, stack_b);
-	ft_putstr("pa\n");
-}
-
-void	ft_push_b(t_stack **stack_b, t_stack **stack_a)
-{
 	ft_push(stack_b, stack_a);
-	ft_putstr("pb\n");
+	ft_putstr("pa\n");
 }

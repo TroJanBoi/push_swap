@@ -27,7 +27,6 @@
 // ./checker_Mac 42 000042 5 1         // has duplicate number
 // ./checker_Mac -5 2 -00005 7         // has duplicate number
 
-
 // // ok_input
 // ./checker_Mac 4 +2 5 1
 // ./checker_Mac "4" +2 5 "1"
@@ -38,42 +37,99 @@
 
 // ./push_swap "" "" 1 2 3 fail
 
-// ./push_swap "123123123           2""3" "" 44445 123456789 
+// ./push_swap "123123123           2""3" "" 44445 123456789 fail
+
+static void	ft_addtostack(t_stack **statck_a, char *str)
+{
+	t_stack	*new;
+	int		i;
+	char	**result;
+
+	i = 0;
+	result = ft_split(str, ' ');
+	while (result[i])
+	{
+		new = ft_newstack(ft_atoi(result[i]));
+		ft_lstadd_back(statck_a, new);
+		i++;
+	}
+	ft_free(result);
+}
+
+static void ft_check_sort(t_stack **stack_a, t_stack **stack_b, int size)
+{
+	if (size <= 2)
+		sort_dool(stack_a);
+	else if (size <= 3)
+		sort_seht(stack_a);
+	else if (size <= 4)
+		sort_neht(stack_a, stack_b);
+	else if (size <= 5)
+		sort_dausut(stack_a, stack_b);
+}
+
+static void	ft_printstack(t_stack **stack)
+{
+	t_stack	*tmp;
+
+	tmp = *stack;
+	while (tmp)
+	{
+		printf("%d\n", tmp->data);
+		tmp = tmp->next;
+	}
+}
 
 int	main(int ac, char **av)
 {
-	// t_stack	*stack_a;
-	// t_stack	*stack_b;
-	int		i;
+	t_stack	**stack_a;
+	t_stack	**stack_b;
 	char	*str;
 
-	i = 1;
 	if (ac < 2)
 		return (0);
-	str = malloc(sizeof(char *) * ft_strlen(*av));
-	if (!str)
-		return (0);
-	while (av[i])
-	{
-		check_arg(av[i]);
-		i++;
-	}
-	
-	free(str);
-		// str = ft_strjoin(str, " ");
-		// str = ft_strjoin(str, av[i]);
-	
+	str = check_arg(av);
+	stack_a = malloc(sizeof(t_stack));
+	stack_b = malloc(sizeof(t_stack));
+	ft_addtostack(stack_a, str);
+	ft_setindex(stack_a);
+	// ft_printstack(stack_a);
+	ft_check_sort(stack_a, stack_b, ft_lstsize(*stack_a));
+	// ft_printstack(stack_a);
+	ft_freestack(stack_a);
+	ft_freestack(stack_b);
 }
+
+/*Add into stack_a*/
+
+// while (result[i])
+// {
+// 	dprintf(2, ">>>>>>> %d\n", ft_atoi(result[i]));
+// 	tmp = ft_newstack(ft_atoi(result[i]));
+// 	ft_addstack(stack_a, tmp);
+// 	i++;
+// }
+// t_stack *new;
+// new = *stack_a;
+
+// while (new->next)
+// {
+// 	printf("%d\n", new->data);
+// 	new = new->next;
+// }	
 
 // int	main()
 // {
-// 	const char	*str = "-2147483647";
+// 	const char	*str = "             ";
+// 	char		**result;
 
+// 	// printf(">>>>> ");
+// 	// printf("%s\n", **ft_split(str, ' '));
 // 	// printf("INT_MAX : %d\n", INT_MAX);
 // 	// printf("%d\n", atoi(str));
 // 	// if (atoi(str) >= INT_MAX || atoi(str) <= INT_MIN)
 // 	// 	printf("Error\n");
-// 	printf("%d\n", 0005);
+// 	// printf("%s\n", *result);
 // 	// printf("INT_MIN : %d\n", INT_MIN); // -2147483648
 // 	// printf("INT_MAX : %d\n", INT_MAX); // 2147483647 	
 // 	// printf("ft_atoi : %d\n", ft_atoi(str));

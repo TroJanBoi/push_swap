@@ -33,6 +33,7 @@ void	ft_rra(t_stack **stack_a)
 	ft_r_reverse(stack_a);
 	ft_putstr("rra\n");
 }
+
 void	ft_rrb(t_stack **stack_b)
 {
 	ft_r_reverse(stack_b);

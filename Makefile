@@ -12,8 +12,8 @@
 
 NAME = push_swap
 CC = cc
-# CFLAGS = -Wall -Wextra -Werror
-CFLAGS =
+# CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -g
 AR = ar rcs
 RM = rm -f
 
@@ -26,8 +26,16 @@ FILES = main \
 		rotate \
 		reverse \
 		ft_split \
-		ft_atoi \
 		check_util \
+		ft_atol \
+		ft_atoi \
+		ft_util2 \
+		sort \
+		ft_index \
+		sort_dool \
+		sort_seht \
+		sort_neht \
+		sort_dausut \
 		check_input
 
 

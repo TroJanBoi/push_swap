@@ -36,36 +36,71 @@ static int	ft_isalnum(char *str)
 	int	i;
 
 	i = 0;
-	while (str[i])
+	while (str[i] != '\0')
 	{
-		if (ft_check_op(str[i]) == false)
-			break;
+		if (check_num(str[i]) == 1)
+		{
+			i++;
+			if (check_op(str[i]) == 1)
+				return (0);
+		}
+		else if (check_op(str[i]) == 1)
+		{
+			i++;
+			if (check_op(str[i]) == 1 || str[i] == ' ')
+				return (0);
+		}
+		else if (str[i] == ' ')
+		{
+			i++;
+		}
+		else
+			return (0);
+	}
+	return (1);
+}
+
+int	ft_checkdup(char *str)
+{
+	int		i;
+	int		j;
+	char	**result;
+
+	i = 0;
+	result = ft_split(str, ' ');
+	while (result[i])
+	{
+		j = i + 1;
+		while (result[j])
+		{
+			if (ft_atoi(result[i]) == ft_atoi(result[j]))
+				return (0);
+			j++;
+		}
 		i++;
 	}
-	if (i > 1)
-		return (0);
-	while (str[i])
+	ft_free(result);
+	return (1);
+}
+
+char	*check_arg(char **av)
+{
+	int		i;
+	char	*str;
+
+	i = 1;
+	while (av[i])
 	{
-		if (ft_check_num(str[i]) == 1)
-			i++;
-		else if (ft_check_num(str[i]) == 0)
-		 	return (0);
+		if (ft_strlen(av[i]) == 0 || ft_isalspace(av[i]) == 0)
+			ft_error();
+		else if (ft_isalnum(av[i]) == 0 || check_overflow(av[i]) == 0)
+			ft_error();
+		i++;
 	}
-	return (1);
-}
-
-static	int	check_overflow(char *str)
-{
-	if (ft_atoi(str) >= INT_MAX || ft_atoi(str) <= INT_MIN)
-		return (0);
-	return (1);
-}
-
-void	check_arg(char *str)
-{
-
-	if (ft_strlen(str) == 0 || ft_isalspace(str) == 0)
+	str = ft_alljoin(av);
+	if (ft_checkdup(str) == 0)
 		ft_error();
-    if (ft_isalnum(str) == 0)
-		ft_error();
+	if (check_sort(str) == 1)
+		exit(1);
+	return (str);
 }

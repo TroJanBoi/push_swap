@@ -12,12 +12,42 @@
 
 #include "push_swap.h"
 
-int	ft_check_num(char c)
+int	check_num(char c)
 {
 	return (c >= '0' && c <= '9');
 }
 
-int	ft_check_op(char c)
+int	check_op(char c)
 {
 	return (c == '+' || c == '-');
+}
+
+int	check_overflow(char *str)
+{
+	if (ft_atol(str) > INT_MAX || ft_atol(str) < INT_MIN)
+		return (0);
+	return (1);
+}
+
+int	check_sort(char *str)
+{
+	int		i;
+	int		j;
+	char	**result;
+
+	i = 0;
+	result = ft_split(str, ' ');
+	while (result[i])
+	{
+		j = i + 1;
+		while (result[j])
+		{
+			if (ft_atoi(result[i]) > ft_atoi(result[j]))
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	ft_free(result);
+	return (1);
 }

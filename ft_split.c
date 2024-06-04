@@ -43,7 +43,7 @@ static size_t	word_len(char const *s, char c)
 	return (i);
 }
 
-static void	ft_free(size_t i, char **array)
+static void	ft_free_split(size_t i, char **array)
 {
 	while (i > 0)
 	{
@@ -67,7 +67,7 @@ static char	**split(char const *s, char c, char **array, size_t words_count)
 		*(array + i) = ft_substr(s, j, word_len(&*(s + j), c));
 		if (!*(array + i))
 		{
-			ft_free(i, array);
+			ft_free_split(i, array);
 			return (NULL);
 		}
 		while (*(s + j) && *(s + j) != c)
