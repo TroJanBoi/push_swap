@@ -21,7 +21,7 @@ long	ft_atol(const char *nptr)
 	i = 0;
 	result = 0;
 	sign = 1;
-	while (nptr[i] >= 9 && nptr[i] <= 13 || nptr[i] == 32)
+	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32)
 		i++;
 	if (nptr[i] == '+' || nptr[i] == '-')
 	{
