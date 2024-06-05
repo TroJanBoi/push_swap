@@ -74,7 +74,12 @@ int	ft_checkdup(char *str)
 		while (result[j])
 		{
 			if (ft_atoi(result[i]) == ft_atoi(result[j]))
+			{
+				free(str);
+				ft_free(result);
+				result = NULL;
 				return (0);
+			}
 			j++;
 		}
 		i++;
@@ -102,6 +107,8 @@ char	*check_arg(char **av)
 	if (ft_checkdup(str) == 0)
 		ft_error();
 	if (check_sort(str) == 1)
+	{
 		exit(1);
+	}
 	return (str);
 }

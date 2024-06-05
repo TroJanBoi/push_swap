@@ -45,12 +45,15 @@ int	check_sort(char *str)
 			if (ft_atoi(result[i]) > ft_atoi(result[j]))
 			{
 				ft_free(result);
+				result = NULL;
 				return (0);
 			}
 			j++;
 		}
 		i++;
 	}
+	free(str);
 	ft_free(result);
+	result = NULL;
 	return (1);
 }
