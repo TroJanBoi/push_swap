@@ -45,15 +45,16 @@ void	ft_lstadd_back(t_stack **lst, t_stack *new);
 int		ft_lstsize(t_stack *lst);
 void	ft_free(char **str);
 void	ft_radix(t_stack **stack_a, t_stack **stack_b);
+void	ft_puterr(char *str);
 /*Sorting*/
 int		check_sort(char *str);
 void	ft_freestack(t_stack **stack);
-// void	ft_sort(t_stack **stack_a, t_stack **stack_b);
 void	ft_setindex(t_stack **stack);
 void	sort_dool(t_stack **stack_a);
 void	sort_seht(t_stack **stack_a);
 void	sort_neht(t_stack **stack_a, t_stack **stack_b);
 void	sort_dausut(t_stack **stack_a, t_stack **stack_b);
+void	sort_doolb(t_stack **stack_b);
 
 /*Check Input*/
 char	*check_arg(char **av);
@@ -68,6 +69,7 @@ void	ft_push_b(t_stack **stack_a, t_stack **stack_b);
 /*Swap Stack*/
 void	ft_swap(t_stack **stack);
 void	ft_swap_a(t_stack **stack_a);
+void	ft_swap_b(t_stack **stack_b);
 void	ft_swap_both(t_stack **stack_a, t_stack **stack_b);
 
 /*Rotate Stack*/

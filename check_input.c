@@ -47,7 +47,7 @@ static int	ft_isalnum(char *str)
 		else if (check_op(str[i]) == 1)
 		{
 			i++;
-			if (check_op(str[i]) == 1 || str[i] == ' ')
+			if (check_op(str[i]) == 1 || str[i] == ' ' || check_num(str[i]) == 0)
 				return (0);
 		}
 		else if (str[i] == ' ')
@@ -108,7 +108,7 @@ char	*check_arg(char **av)
 		ft_error();
 	if (check_sort(str) == 1)
 	{
-		exit(1);
+		exit(EXIT_SUCCESS);
 	}
 	return (str);
 }

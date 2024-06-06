@@ -43,6 +43,18 @@ static void	ft_check_sort(t_stack **stack_a, t_stack **stack_b, int size)
 		ft_radix(stack_a, stack_b);
 }
 
+void	ft_print(t_stack **stack)
+{
+	t_stack *tmp;
+
+	tmp = *stack;
+	while (tmp)
+	{
+		printf("%d\n", tmp->data);
+		tmp = tmp->next;
+	}
+}
+
 int	main(int ac, char **av)
 {
 	t_stack	*stack_a;
@@ -50,14 +62,17 @@ int	main(int ac, char **av)
 	char	*str;
 
 	if (ac < 2)
-		return (0);
-	str = check_arg(av);
+		return (-1);
 	stack_a = NULL;
 	stack_b = NULL;
+	str = check_arg(av);
 	ft_addtostack(&stack_a, str);
 	free(str);
 	ft_setindex(&stack_a);
+	// ft_print(&stack_a);
 	ft_check_sort(&stack_a, &stack_b, ft_lstsize(stack_a));
+	// ft_print(&stack_a);
 	ft_freestack(&stack_a);
 	ft_freestack(&stack_b);
+	return (0);
 }

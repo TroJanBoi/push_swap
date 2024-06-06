@@ -60,3 +60,15 @@ void	ft_free(char **str)
 	}
 	free(str);
 }
+
+void	ft_puterr(char *str)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		write(2, &str[i], 1);
+		i++;
+	}
+}

@@ -89,6 +89,6 @@ char	*ft_strjoin(const char *s1, const char *s2)
 
 void	ft_error(void)
 {
-	ft_putstr("Error\n");
-	exit(1);
+	ft_puterr("Error\n");
+	exit (EXIT_SUCCESS);
 }

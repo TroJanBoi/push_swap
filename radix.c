@@ -50,6 +50,7 @@ void	ft_radix(t_stack **stack_a, t_stack **stack_b)
 	tmp = *stack_a;
 	size = ft_lstsize(tmp);
 	max = ft_find_max(stack_a);
+	printf("max : %d\n", max);
 	while (i <= max)
 	{
 		j = 0;
