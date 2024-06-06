@@ -54,7 +54,7 @@ $(NAME): $(OBJS) push_swap.h
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 clean:
-	$(RM) $(OBJS) $(NAME) a.out
+	$(RM) $(OBJS) 
 
 fclean: clean
 	$(RM) $(NAME)

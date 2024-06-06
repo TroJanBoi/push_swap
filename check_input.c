@@ -31,26 +31,26 @@ static int	ft_isalspace(char *str)
 		return (true);
 }
 
-static int	ft_isalnum(char *str)
+static int	ft_isalnum(char *s)
 {
 	int	i;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (s[i] != '\0')
 	{
-		if (check_num(str[i]) == 1)
+		if (check_num(s[i]) == 1)
 		{
 			i++;
-			if (check_op(str[i]) == 1)
+			if (check_op(s[i]) == 1)
 				return (0);
 		}
-		else if (check_op(str[i]) == 1)
+		else if (check_op(s[i]) == 1)
 		{
 			i++;
-			if (check_op(str[i]) == 1 || str[i] == ' ' || check_num(str[i]) == 0)
+			if (check_op(s[i]) == 1 || s[i] == ' ' || check_num(s[i]) == 0)
 				return (0);
 		}
-		else if (str[i] == ' ')
+		else if (s[i] == ' ')
 		{
 			i++;
 		}

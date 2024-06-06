@@ -24,7 +24,7 @@ void	ft_sleeponly(t_stack **stack_a)
 	while (tmp)
 	{
 		if (tmp->index == 1 || tmp->index == 2)
-			break;
+			break ;
 		i++;
 		tmp = tmp->next;
 	}

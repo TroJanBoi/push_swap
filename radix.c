@@ -29,7 +29,7 @@ static int	ft_find_max(t_stack **stack)
 	}
 	while ((max >> bits) != 0)
 		bits++;
-	return 	(bits);
+	return (bits);
 }
 
 static void	ft_swingher(t_stack **stack_a, t_stack **stack_b)
@@ -45,13 +45,12 @@ void	ft_radix(t_stack **stack_a, t_stack **stack_b)
 	int		i;
 	int		max;
 	int		j;
-	
+
 	i = 0;
 	tmp = *stack_a;
 	size = ft_lstsize(tmp);
 	max = ft_find_max(stack_a);
-	printf("max : %d\n", max);
-	while (i <= max)
+	while (i < max)
 	{
 		j = 0;
 		while (j < size)
@@ -63,7 +62,7 @@ void	ft_radix(t_stack **stack_a, t_stack **stack_b)
 				ft_push_b(stack_a, stack_b);
 			j++;
 		}
-		ft_swingher(stack_a, stack_b);
 		i++;
+		ft_swingher(stack_a, stack_b);
 	}
 }
